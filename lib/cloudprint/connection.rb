@@ -61,6 +61,8 @@ module CloudPrint
       method = options[:method]
       uri = options[:uri]
 
+      puts options
+
       request = case method
                   when :multipart
                     req = Net::HTTP::Post.new(uri.request_uri)
