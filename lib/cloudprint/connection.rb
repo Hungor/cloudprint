@@ -37,6 +37,9 @@ module CloudPrint
 
     def request(method, path, params)
       url = full_url_for(path)
+
+      puts "URL: #{url}"
+      puts "PARAMS: #{params.to_s}"
       make_http_request(:method => method, :url => url, :params => params)
     end
 
@@ -46,9 +49,11 @@ module CloudPrint
       http = build_http_connection(uri)
       request = build_request(:method => method, :uri => uri, :params => options[:params])
 
-      binding.pry
+
       response = http.request(request)
-      puts response.to_json
+      puts "REQUEST: #{request.to_s}"
+      puts "RESPONSE: #{response.to_json}"
+      puts "RESPONSE BODY: #{response.body}"
       response
     end
 
