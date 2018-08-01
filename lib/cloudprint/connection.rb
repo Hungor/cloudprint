@@ -61,7 +61,7 @@ module CloudPrint
       method = options[:method]
       uri = options[:uri]
 
-      puts options
+      puts "OPTIONS: #{options}"
 
       request = case method
                   when :multipart
