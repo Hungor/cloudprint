@@ -46,7 +46,9 @@ module CloudPrint
       http = build_http_connection(uri)
       request = build_request(:method => method, :uri => uri, :params => options[:params])
 
-      http.request(request)
+      response = http.request(request)
+      puts response.to_json
+      response
     end
 
     def build_request(options)
